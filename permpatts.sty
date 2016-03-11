@@ -1,0 +1,49 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{permpatts}[2016/02/29 Package for working with permutation patterns]
+\RequirePackage{stmaryrd}
+\RequirePackage{amsmath}
+\RequirePackage{xinttools}
+\RequirePackage{permpattsgraphics}
+
+%-- Macros
+% ---- Math mode macros -----
+\newcommand{\perm}[1]{%
+    \xintFor ##1 in {#1}\do {##1}
+}
+
+\newcommand{\mperm}[2]{%
+\left(
+\perm{#1},#2\right)
+}
+
+\newcommand{\range}[2]{%
+#1,\dotsc,#2
+}
+
+\newcommand{\setrange}[2]{%
+\left\{\range{#1}{#2}\right\}
+}
+
+\newcommand{\nrange}[1]{%
+\left\llbracket{}#1\right\rrbracket{}}
+
+\DeclareMathOperator{\Av}{Av}
+\newcommand{\av}[1]{\Av\!\left(#1\right)}
+
+\newcommand{\powset}[1]{\mathcal{P}(#1)}
+\newcommand{\size}[1]{\left|#1\right|}
+
+\newcommand{\addp}[2]{\mathtt{add\_point}(#1, #2)}
+\newcommand{\addi}[2]{\mathtt{add\_increase}(#1, #2)}
+\newcommand{\addd}[2]{\mathtt{add\_decrease}(#1, #2)}
+
+\def\twoline#1#2
+{\begin{pmatrix}
+    \xintFor ##1 in {#1}\do {%
+    \xintifForFirst{##1}{&##1}}
+\\
+    \xintFor ##2 in {#2}\do {%
+    \xintifForFirst{##2}{&##2}}
+
+\end{pmatrix}
+}
