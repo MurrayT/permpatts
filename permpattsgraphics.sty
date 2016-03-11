@@ -1,0 +1,47 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{permpattsgraphics}[2016/02/29 Graphics for permutation patterns]
+\RequirePackage{xinttools}
+\RequirePackage{tikz}
+\usetikzlibrary{patterns}
+
+\providecommand{\picscale}{0.35}
+\providecommand{\textscale}{0.175}
+
+\newcommand{\drawthegrid}[1]{%
+\draw (0.01,0.01) grid (#1+0.99,#1+0.99);
+}
+
+\newcommand{\drawthepoints}[2]{%
+\foreach[count=\x] \y in {#1}
+\filldraw (\x,\y) circle (#2 pt);
+}
+
+\newcommand{\shadeboxes}[1]{
+    \foreach \x/\y in {#1}
+    \fill[pattern=north east lines, pattern color=black!75] (\x,\y) rectangle +(1,1);
+
+}
+
+\newcommand{\clpattern}[3][5]{%
+    \pgfmathsetmacro\circlesize{#1+4}
+    \drawthegrid{\xintNthElt{0}{\xintCSVtoList {#3}}}
+    \drawthepoints{#3}{#1}
+    \foreach \x in {#2}
+    \draw (\x,\xintNthElt{\x}{\xintCSVtoList {#3}}) circle (9pt);
+}
+
+\newcommand{\pattern}[4][]{%
+    \raisebox{0.6ex}{
+    \begin{tikzpicture}[scale=\picscale, baseline=(current bounding box.center), #1]
+        \shadeboxes{#4}
+        \clpattern[5]{#2}{#3}
+    \end{tikzpicture}}\;
+}
+
+\newcommand{\textpattern}[4][]{%
+    \raisebox{0.6ex}{
+    \begin{tikzpicture}[scale=\textscale, baseline=(current bounding box.center), #1]
+        \shadeboxes{#4}
+        \clpattern[8]{#2}{#3}
+    \end{tikzpicture}}\;
+}
