@@ -27,15 +27,22 @@
 \newcommand{\nrange}[1]{%
 \left\llbracket{}#1\right\rrbracket{}}
 
+\newcommand{\setsize}[1]{%
+    \left|#1\right|}
+
 \DeclareMathOperator{\Av}{Av}
 \newcommand{\av}[1]{\Av\!\left(#1\right)}
 
 \newcommand{\powset}[1]{\mathcal{P}(#1)}
 \newcommand{\size}[1]{\left|#1\right|}
 
-\newcommand{\addp}[2]{\mathtt{add\_point}(#1, #2)}
-\newcommand{\addi}[2]{\mathtt{add\_increase}(#1, #2)}
-\newcommand{\addd}[2]{\mathtt{add\_decrease}(#1, #2)}
+\newcommand{\addp}[3][\emptyset]{\mathtt{add\_point}\left(#2, #3, #1\right)}
+\newcommand{\addpe}[1][\emptyset]{\mathtt{add\_point}\left(\varepsilon, #1\right)}
+
+\newcommand{\addi}[2]{\mathtt{add\_ascent}\left(#1, #2\right)}
+\newcommand{\addie}[0]{\mathtt{add\_ascent}\left(\varepsilon\right)}
+\newcommand{\addd}[2]{\mathtt{add\_descent}\left(#1, #2\right)}
+\newcommand{\addde}[0]{\mathtt{add\_descent}\left(\varepsilon\right)}
 
 \def\twoline#1#2
 {\begin{pmatrix}

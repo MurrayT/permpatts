@@ -27,7 +27,7 @@
     \drawthegrid{\xintNthElt{0}{\xintCSVtoList {#3}}}
     \drawthepoints{#3}{#1}
     \foreach \x in {#2}
-    \draw (\x,\xintNthElt{\x}{\xintCSVtoList {#3}}) circle (9pt);
+    \draw (\x,\xintNthElt{\x}{\xintCSVtoList {#3}}) circle (\circlesize pt);
 }
 
 \newcommand{\pattern}[4][]{%
@@ -45,3 +45,7 @@
         \clpattern[8]{#2}{#3}
     \end{tikzpicture}}\;
 }
+
+\newcommand{\modpattern}[3]{%
+    \shadeboxes{#3}
+    \clpattern[5]{#1}{#2}}
