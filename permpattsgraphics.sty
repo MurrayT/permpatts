@@ -49,3 +49,51 @@
 \newcommand{\modpattern}[4][5]{%
     \shadeboxes{#4}
     \clpattern[#1]{#2}{#3}}
+
+\newcommand{\decompmax}[5]{%
+    \begin{tikzpicture}[scale=1.0, baseline=(current bounding box.center)]
+        \fill[pattern=north east lines, pattern color=black!75] (-1,0) rectangle +(2,0.5);
+        \foreach \x/\y in {#1}
+            \fill[pattern=north east lines, pattern color=black!75] (\x-1,\y-2) rectangle +(1,1);
+        \draw (-1,0) -- (1,0)
+              (0,0.5) -- (0,-2)
+              (-1,-1) -- (1,-1);
+        \filldraw (0,0) circle (3pt);
+        \draw (-0.5, -1.5) node {\(#2\)};
+        \draw (0.5, -1.5) node {\(#3\)};
+        \draw (-0.5, -0.5) node {\(#4\)};
+        \draw (0.5, -0.5) node {\(#5\)};
+    \end{tikzpicture}
+}
+
+\newcommand{\decompmin}[5]{%
+    \begin{tikzpicture}[scale=1.0, baseline=(current bounding box.center)]
+        \fill[pattern=north east lines, pattern color=black!75] (-1,0) rectangle +(2,-0.5);
+        \foreach \x/\y in {#1}
+            \fill[pattern=north east lines, pattern color=black!75] (\x-1,\y) rectangle +(1,1);
+        \draw (-1,0) -- (1,0)
+              (0,-0.5) -- (0,2)
+              (-1,1) -- (1,1);
+        \filldraw (0,0) circle (3pt);
+        \draw (-0.5, 1.5) node {\(#4\)};
+        \draw (0.5, 1.5) node {\(#5\)};
+        \draw (-0.5, 0.5) node {\(#2\)};
+        \draw (0.5, 0.5) node {\(#3\)};
+    \end{tikzpicture}
+}
+
+\newcommand{\decompleft}[5]{%
+    \begin{tikzpicture}[scale=1.0, baseline=(current bounding box.center)]
+        \fill[pattern=north east lines, pattern color=black!75] (0,-1) rectangle +(-0.5,2);
+        \foreach \x/\y in {#1}
+            \fill[pattern=north east lines, pattern color=black!75] (\x,\y-1) rectangle +(1,1);
+        \draw (0,1) -- (0,-1)
+              (-0.5,0) -- (2,0)
+              (1,1) -- (1,-1);
+        \filldraw (0,0) circle (3pt);
+        \draw (1.5, 0.5) node {\(#5\)};
+        \draw (1.5, -0.5) node {\(#3\)};
+        \draw (0.5, 0.5) node {\(#4\)};
+        \draw (0.5, -0.5) node {\(#2\)};
+    \end{tikzpicture}
+}
