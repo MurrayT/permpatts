@@ -1,7 +1,9 @@
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesPackage{permpatts}[2016/02/29 Package for working with permutation patterns]
-\RequirePackage{stmaryrd}
+\RequirePackage{stmaryrd} % provides ll\rr brackets
+\RequirePackage{mathabx}  % provides lcorners and rcorners
 \RequirePackage{amsmath}
+
 \RequirePackage{xinttools}
 \RequirePackage{permpattsgraphics}
 
@@ -28,7 +30,18 @@
 \left\llbracket{}#1\right\rrbracket{}}
 
 \newcommand{\setsize}[1]{%
-    \left|#1\right|}
+\left|#1\right|}
+
+\newcommand{\boks}[1]{{\lcorners{}#1\rcorners}}
+\newcommand{\boksright}[1]{{\scriptsize\overrightarrow{\boks{#1}\:}\!}}
+\newcommand{\boksleft}[1]{{\scriptsize\overleftarrow{\:\boks{#1}}}}
+\newcommand{\boksup}[1]{{\boks{#1}\uparrow}}
+\newcommand{\boksdown}[1]{{\boks{#1}\downarrow}}
+\newcommand{\boksrightup}[1]{{\scriptsize\overrightarrow{\boks{#1}\:}\!\uparrow}}
+\newcommand{\boksleftup}[1]{{\scriptsize\overleftarrow{\:\boks{#1}}\uparrow}}
+\newcommand{\boksrightdown}[1]{{\scriptsize\overrightarrow{\boks{#1}\:}\!\downarrow}}
+\newcommand{\boksleftdown}[1]{{\scriptsize\overleftarrow{\:\boks{#1}}\downarrow}}
+\newcommand{\boksall}[1]{{\boks{#1}\star}}
 
 \DeclareMathOperator{\Av}{Av}
 \newcommand{\av}[2][]{\Av_{#1}\!\left(#2\right)}
