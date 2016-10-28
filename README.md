@@ -27,7 +27,6 @@ ln -s `pwd` `kpsewhich -var-value=TEXMFHOME`/tex/latex/permpatts
 ```
 ---
 You may be required to install some extra packages into your TeX distribution.
-Req
 
 ## Usage
 
