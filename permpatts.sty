@@ -10,21 +10,17 @@
 %-- Macros
 % ---- Math mode macros -----
 \newcommand{\perm}[1]{%
-    \xintFor ##1 in {#1}\do {##1}
-}
+    \xintFor ##1 in {#1}\do {##1}}
 
 \newcommand{\mperm}[2]{%
 \left(
-\perm{#1},#2\right)
-}
+\perm{#1},#2\right)}
 
 \newcommand{\range}[2]{%
-#1,\dotsc,#2
-}
+#1,\dotsc,#2}
 
 \newcommand{\setrange}[2]{%
-\left\{\range{#1}{#2}\right\}
-}
+\left\{\range{#1}{#2}\right\}}
 
 \newcommand{\nrange}[1]{%
 \left\llbracket{}#1\right\rrbracket{}}
