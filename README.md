@@ -8,6 +8,7 @@ Required LaTeX packages (:
 - [`xinttools`](https://www.ctan.org/pkg/xinttools?lang=en)
 - [`tikz`](https://www.ctan.org/pkg/pgf?lang=en)
 - [`mathabx`](https://www.ctan.org/pkg/mathabx?lang=en)
+* [`xifthen`](https://ctan.org/pkg/xifthen)
 
 ## Installation
 ### For pros
