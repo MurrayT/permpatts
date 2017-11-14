@@ -30,7 +30,9 @@
       nonnode/.style  = {inner sep=0.0pt, outer sep=0.0pt}]
 
       \useasboundingbox (0.0,-.3) rectangle (#2,#3+.3);
-      \draw (0.01,0.01) grid (#2-0.01,#3-0.01);
+      \ifthenelse{#2>1 \OR #3>1}{%
+        \draw (0.01,0.01) grid (#2-0.01,#3-0.01);
+      }{}
       \draw[rounded corners=5pt] (0.01,0.01) rectangle (#2-0.01,#3-0.01);
 
       \foreach \x/\y in {#4}
