@@ -11,6 +11,9 @@
 *.cb
 *.cb2
 
+## Exclude example pdfs
+examples/*.pdf
+
 ## Intermediate documents:
 *.dvi
 *.xdv
